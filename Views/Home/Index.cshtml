@@ -1,0 +1,33 @@
+﻿@model  WebApplication1.Models.CaptchaModel
+@{
+    ViewBag.Title = "Home Page";
+}
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    {
+        <table>
+            <tr>
+                <td colspan="3">
+                    <img src="@Url.Action("capthaGetir")" title="DOĞRULAMA KODU" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(m => m.Captcha) :
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.Captcha)
+                </td>
+                <td>
+                    @Html.ValidationMessageFor(m => m.Captcha)
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <input type="submit" value="DOĞRULA" />
+                </td>
+            </tr>
+        </table>
+    }
+}
